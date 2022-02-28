@@ -53,8 +53,16 @@ def is_beautiful_string(strInput):
         'z': 0
     }
 
+    # Code cũ
+    # for c in strInput:
+    #     dict_alphabet[c] = strInput.count(c)
+
+    # Code mới, em xin sửa lại vòng lặp này để tối ưu thời gian chạy
+    lstCounted = list()
     for c in strInput:
-        dict_alphabet[c] = strInput.count(c)
+        if c not in lstCounted:
+            dict_alphabet[c] = strInput.count(c)
+            lstCounted.extend(c)
 
     lstKeys = list(dict_alphabet.keys())
     lstKeys.sort()
